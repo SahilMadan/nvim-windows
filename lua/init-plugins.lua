@@ -26,6 +26,15 @@ return require('packer').startup(function()
     use {'hrsh7th/vim-vsnip'}
     use {'hrsh7th/vim-vsnip-integ'}
 
+    -- Git Integration
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
+      config = require'plugin.gitsigns'
+    }
+
     -- General language config neovim's built-in lsp
     use {
       'neovim/nvim-lspconfig',
@@ -48,7 +57,7 @@ return require('packer').startup(function()
         'kyazdani42/nvim-web-devicons'
       },
       config = require'plugin.nvim-tree'
-    } 
+    }
 
     -- Icons
     -- To enable on Windows, see NerdFonts.com Caskaydia Cove Nerd Font. You
@@ -76,6 +85,19 @@ return require('packer').startup(function()
       config = require'plugin.barbar'
     }
 
+    -- Highlight/Remove Trailing Whitespace
+    use {
+      'ntpeters/vim-better-whitespace',
+      requires = {
+        config = require'plugin.vim-better-whitespace'
+      },
+    }
+
+    -- Matchup - Extends % key to matching text
+    use { 'andymass/vim-matchup' }
+
+    -- Vim Sandwich. Modify surrounding text.
+    use { 'machakann/vim-sandwich' }
 
 end)
 

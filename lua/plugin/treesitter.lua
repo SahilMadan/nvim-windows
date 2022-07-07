@@ -5,7 +5,7 @@ end
 
 treesitter_config.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua"},
+  ensure_installed = { "c", "cpp", "lua"},
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -29,6 +29,12 @@ treesitter_config.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+
+  -- Required for vim-matchup.
+  matchup = {
+    enable = true,
+  }
 }
 
+-- For this to work, neovim must be run in a Developer console before calling :TSInstall or :TSUpdate.
 require'nvim-treesitter.install'.compilers = {"cl"}
